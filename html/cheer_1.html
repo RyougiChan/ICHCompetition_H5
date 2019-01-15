@@ -121,13 +121,30 @@
                 console.log("微信朋友圈分享");
                 showCheerGuide();
             });
+            //获取用户信息
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    $('.user-head').html('<img src="'+data.url+'" /><p>'+data.name+'</p>')
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
         });
     </script>
-    <title>中华少年说</title>
+    <title>51Talk之星 中华少年说</title>
 </head>
 <body>
     <div class="cheer1-container">
         <div class="main">
+            <p class="main-title">
+                我国共有<span class="main-title-number">1000</span>个非物质文化遗产，居全球第<span class="main-title-number">1</span>位<br>
+                随着传承人减少，每年<span class="main-title-number">100</span>个非遗正在消失
+            </p>
             <div class="main-header">
                 <img class="head" src="../static/images/cheer1/head.png" />
                 <p class="header-word">
@@ -137,7 +154,12 @@
             </div>
             <div class="main-screen">
                 <img class="screen-play" src="../static/images/cheer/play.png" />
-                <video class="screen-video" src="xxx.mp4" poster="../static/images/cheer1/poster.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+                <img class="poster-img" src="../static/images/cheer1/poster.png" />
+                <video class="screen-video" src="http://demo.lanrenzhijia.com/demo/51/5183/demo/vedio/sintel.mp4" poster="../static/images/cheer1/poster.png" playsinline controls="false" x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+            </div>
+            <div class="user-head">
+                <img src="../static/images/cheer/head.png" />
+                <p>51Talk 恭喜您</p>
             </div>
             <div class="main-heart"></div>
             <p class="main-word">为TA助威</p>

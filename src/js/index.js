@@ -1,15 +1,37 @@
-let loadingAction = () => {
-    let progress = 0;
-    let timer = setInterval(() => {
-        progress++;
-        $(".loading-number").html(progress);
-        $(".progress").css("width",progress + "%");
-        if(progress == 100){
-            clearInterval(timer);
-            $(".index-progress").addClass("not-display");
-            $(".star-yell").removeClass("not-display");
-        }
-    },50);
+let loadingAction = (fun1,fun2) => {
+    let visited = sessionStorage.getItem("visited");
+    if(visited == "true"){
+        $(".index-progress,.star-yell").addClass("not-display");
+        $(".index-container").removeClass("not-display");
+        fun1();
+        fun2();
+    }
+    else{
+        let progress = 0;
+        let time = 0;
+        let canplay = false;
+        $(".star-video").on("canplaythrough",function(){
+            canplay = true;
+            sessionStorage.setItem("visited",true);
+        });
+        let timer = setInterval(() => {
+            time++;
+            if(time > 500){
+                progress++;
+                sessionStorage.setItem("visited",true);
+            }
+            if((progress < 90) || (progress >= 90 && canplay)){
+                progress++;
+            }
+            $(".loading-number").html(progress);
+            $(".progress").css("width",progress + "%");
+            if(progress == 100){
+                clearInterval(timer);
+                $(".index-progress").addClass("not-display");
+                $(".star-yell").removeClass("not-display");
+            }
+        },10);
+    }
 }
 
 let starYellAction = () => {
@@ -81,7 +103,7 @@ let uploadVideo = (learningIndex)=>{
 
 
     //监听左右滑动
-    let moveX = 0;
+    let moveX = 0,tag = 1;
     $('.swiper-container').on('touchstart',function(){
         moveX = swiper.getTranslate()
     });
@@ -105,6 +127,7 @@ let uploadVideo = (learningIndex)=>{
         if($(this).parent().index() == 0){
             $(this).parent().find('video').get(0).play();
             $(this).addClass('not-display');
+            $('.poster-img').addClass('not-display');
         }else{
             window.location.href = 'learnPark.html?id='+$(this).parent().index();
         }
@@ -122,7 +145,6 @@ let uploadVideo = (learningIndex)=>{
 }
 
 $(()=>{
-    loadingAction();
     starYellAction();
     getTheme();
 });

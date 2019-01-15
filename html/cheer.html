@@ -88,9 +88,22 @@
                 console.log("微信朋友圈分享");
                 showCheerGuide();
             });
+            //获取用户信息
+            $.ajax({
+                url: "test.json",//后端链接
+                type: "post",
+                data: {},
+                dataType: "json",
+                success: function(data){
+                    $('.user-head').html('<img src="'+data.url+'" /><p>'+data.name+'</p>')
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
         });
     </script>
-    <title>中华少年说</title>
+    <title>51Talk之星 中华少年说</title>
 </head>
 <body>
     <div class="cheer-container">
@@ -113,7 +126,12 @@
         </div>
         <div class="content">
             <img class="content-play" src="../static/images/cheer/play.png" />
-            <video class="content-video" src="xxxx.mp4" poster="../static/images/cheer/poster.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+            <img class="poster-img" src="../static/images/cheer/poster.png" />
+            <video class="content-video" src="http://demo.lanrenzhijia.com/demo/51/5183/demo/vedio/sintel.mp4" poster="../static/images/cheer/poster.png" playsinline controls="false" x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+            <div class="user-head">
+                <img src="../static/images/cheer/head.png" />
+                <p>51Talk 恭喜您</p>
+            </div>
             <div class="content-box">
                 <p class="content-number">686</p>
             </div>

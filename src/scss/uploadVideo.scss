@@ -136,7 +136,7 @@ body{
         margin: 10px auto 0;
     }
     .video_pic{
-        width: 248.5px;
+        width: 245.5px;
         height: 133px;
         margin: 16px auto 10px;
         border-radius: 8px;
@@ -150,7 +150,18 @@ body{
         top:274px;
         left: 50%;
         margin-left: -21.5px;
+        z-index: 999;
     }
+    .poster-img{
+        width: 245.5px;
+        height: 133px;
+        position: absolute;
+        bottom: 44px;
+        left: 19px;
+        z-index: 998;
+        border-radius: 8px;
+    }
+
     .intro{
         @include font-dpr(26px);
     }
@@ -210,8 +221,26 @@ body{
         background: url(../images/uploadVideo/video_play.png);
         background-size: 100%;
         position: relative;
-        z-index: 2;
+        z-index: 999;
         margin: 117px auto 0;
+    }
+    .poster-img{
+        width: 309px;
+        height: 165.5px;
+        position: absolute;
+        top: 59px;
+        left: 15px;
+        z-index: 998;
+        border-radius: 8px;
+    }
+    .transcode-icon{
+        width: 150px;
+        height: 150px;
+        background: url(../images/uploadVideo/transcode.png);
+        background-size: 100%;
+        position: relative;
+        z-index: 2;
+        margin: 65px auto 0;
     }
     .upload-back-mask{
         width: 309px;
@@ -249,6 +278,23 @@ body{
         color: #fff;
         @include font-dpr(122px);
         line-height: 75px;
+    }
+    .transcode-word{
+        width: 300px;
+        height: 75px;
+        margin: 0 auto 55px;
+        .transcoding{
+            width: 120px;
+            height: 120px;
+            background: url(../images/uploadVideo/transcoding.gif);
+            background-size:100%; 
+            margin: 0 auto -40px;
+        }
+        p{
+            @include font-dpr(30px,50px);
+            color: #fff;
+            text-align: center;
+        }
     }
     .upload-end-word{
         display: block;
@@ -324,8 +370,26 @@ body{
             background: url(../images/uploadVideo/video_play.png);
             background-size: 100%;
             position: relative;
-            z-index: 2;
+            z-index: 999;
             margin: 100px auto 0;
+        }
+        .poster-img{
+            width: 268.5px;
+            height: 145.5px;
+            position: absolute;
+            top: 52px;
+            left: 15px;
+            z-index: 998;
+            border-radius: 8px;
+        }
+        .transcode-icon{
+            width: 120px;
+            height: 120px;
+            background: url(../images/uploadVideo/transcode.png);
+            background-size: 100%;
+            position: relative;
+            z-index: 2;
+            margin: 55px auto 0;
         }
         .upload-back-mask{
             width: 268.5px;
@@ -364,6 +428,18 @@ body{
             color: #fff;
             @include font-dpr(122px);
             line-height: 75px;
+        }
+        .transcode-word{
+            width: 300px;
+            height: 75px;
+            margin: 0 auto 50px;
+            .transcoding{
+                width: 120px;
+                height: 120px;
+                background: url(../images/uploadVideo/transcoding.gif);
+                background-size:100%; 
+                margin: 0 auto -45px;
+            }
         }
         .upload-end-word{
             display: block;
@@ -426,7 +502,7 @@ body{
     // display: flex;
     // justify-content:center;
     // align-items:center;
-    .submit-error,.submit-out{
+    .submit-error,.submit-out,.transcode-error{
         position: absolute;
         top:0;
         left: 0;
@@ -440,11 +516,28 @@ body{
         background: url(../images/uploadVideo/submit_error.png);
         background-size: 100%;
     }
-    .submit-out{
+    .submit-out,.transcode-error{
         width: 303.5px;
         height: 152.5px;
         background: url(../images/uploadVideo/submit_out.png);
         background-size: 100%;
+    }
+    .transcode-error{
+        background: url(../images/uploadVideo/transcode_error.png);
+        background-size: 100%;
+        overflow: hidden;
+        text-align: center;
+    
+        h3{
+            margin: 37px auto 0;
+            @include font-dpr(42px,43px);
+            color: #1acbfd;
+        }
+        p{
+            margin: 26px 15px;
+            @include font-dpr(32px,42px);
+            color: #1acbfd;
+        }
     }
     .cancel{
         width: 20px;

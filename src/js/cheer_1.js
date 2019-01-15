@@ -18,6 +18,7 @@ let videoPlay = () => {
     $(".screen-play").on("touchstart",function(){
         $(this).addClass("not-display");
         $(".screen-video").get(0).play();
+        $('.poster-img').addClass("not-display");
     });
 }
 
@@ -25,7 +26,7 @@ let videoPause = () => {
     $(".screen-video").on("touchstart",function(){
         if($(".screen-play").hasClass("not-display")){
             $(".screen-play").removeClass("not-display");
-            $(".content-video").get(0).pause();
+            $(".screen-video").get(0).pause();
         }
     });
 }

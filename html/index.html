@@ -47,6 +47,9 @@
                 getActiveVideoList(); //动态获取视频
                 getlearningState(); //获取当前学习的站点
             });
+
+            //开屏进度条加载            
+            loadingAction(getActiveVideoList,getlearningState);
             
             //获取正在学习，已打卡，未打卡数据
             function getlearningState(){
@@ -118,7 +121,7 @@
             }
         });
     </script>
-    <title>中华少年说</title>
+    <title>51Talk之星 中华少年说</title>
 </head>
 <body>
     <div class="index-progress">
@@ -130,7 +133,7 @@
         <p class="loading-progress">正在加载...<span class="loading-number">0</span>%</p>
     </div>
     <div class="star-yell not-display">
-        <video class="star-video" src="xxx.mp4" poster="../static/images/index/starPoster.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+        <video class="star-video" src="http://demo.lanrenzhijia.com/demo/51/5183/demo/vedio/sintel.mp4" poster="../static/images/index/starPoster.png"  style="object-fit:fill" poster="../static/images/index/starPoster.png" x5-video-player-type="h5" x5-video-player-fullscreen="true" playsinline x5-video-orientation="portraint" x5-playsinline="true" playsinline="true" webkit-playsinline="true"></video>
         <img class="star-play" src="../static/images/index/play.png" />
         <img class="jump" src="../static/images/index/jump.png" />
     </div>
@@ -143,7 +146,6 @@
             <div class="action enroll">
             </div>
         </div>
-        <div class="host"></div>
         <div class="small-site">
             <div class="site-btn1 site-btn active">第1-5站</div>
             <div class="site-btn2 site-btn">第6-10站</div>
@@ -153,8 +155,9 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" data-id="1">
                         <div class="learning"></div>
-                        <video class="video_pic" src="xxx.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline muted  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
+                        <video class="video_pic" src="http://demo.lanrenzhijia.com/demo/51/5183/demo/vedio/sintel.mp4" poster="../static/images/uploadVideo/video_pic.png" playsinline controls  x5-playsinline="" playsinline="" webkit-playsinline=""></video>
                         <p class="title">第1站 - 参赛指南</p>
+                        <img class="poster-img" src="../static/images/uploadVideo/video_pic.png" />
                         <div class="video_play"></div>
                     </div>
                     <div class="swiper-slide" data-id="2">
@@ -208,10 +211,18 @@
             <img class="qcodeBox" src="../static/images/index/qcodeBox.png" />
             <!---二维码-->
             <img class="qcode" src="../static/images/index/qcode.png" />
+            <div class="advertise-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-id="1">
+                        <img class="adv" src="../static/images/index/starCheerAdv1.png" />
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="enroll-progress">
             <a class="enroll-below" href="#"></a>
         </div>
+        <div class="operation"></div>
         <div class="footer"></div>
     </div>
     <iframe id="rule" name="rule" src="rule.html"></iframe>
